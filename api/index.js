@@ -8,7 +8,26 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-app.use(cors());
+const allow_origins = [
+  "https://promptly-azure.vercel.app/",
+  "http://localhost:5173/",
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+
+      if (allow_origins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 connectDB();
