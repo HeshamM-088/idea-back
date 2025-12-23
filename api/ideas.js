@@ -10,10 +10,6 @@ app.use(express.json());
 
 app.use("/api/v1/ideas", ideaRoutes);
 
-app.get("/", (req, res) => {
-  res.json({ message: "Idea Refiner API is running 🚀" });
-});
-
 app.use((req, res) => {
   res.status(404).json({
     success: false,

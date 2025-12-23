@@ -2,10 +2,10 @@
   "name": "idea-refiner",
   "version": "1.0.0",
   "description": "idearefiner application for building a fullstack vide coding task",
-  "main": "src/server.js",
+  "main": "src/ideas.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "dev": "vercel dev",
+    "start": "vercel dev"
   },
   "keywords": [
     "Idea",
