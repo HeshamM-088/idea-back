@@ -9,8 +9,8 @@ const connectDB = require("./config/db");
 const app = express();
 
 const allow_origins = [
-  "https://promptly-azure.vercel.app/",
-  "http://localhost:5173/",
+  "https://promptly-azure.vercel.app",
+  "http://localhost:5173",
 ];
 
 app.use(
@@ -25,8 +25,12 @@ app.use(
       }
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*", cors());
 
 app.use(express.json());
 
